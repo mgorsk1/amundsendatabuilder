@@ -244,7 +244,9 @@ class AtlasSearchDataExtractor(Extractor):
                 result += search_chunk
 
             return result
-        except Exception:
+        except Exception as e:
+            LOGGER.warning(f'Error processing guids.', exc_info=True)
+
             return []
 
     @staticmethod
